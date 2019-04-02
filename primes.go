@@ -61,10 +61,13 @@ func CalcPrime2(productMin int64, productMax int64) []PrimeResult {
 }
 
 func main() {
-	// fmt.Println(CalcPrime1(7140229933))
+	fmt.Println(CalcPrime1(7140229933))
 	res := CalcPrime2(6541367000, 6541367999)
-	fmt.Println(len(res))
+	// fmt.Println(len(res))
 	sort.SliceStable(res, func(i, j int) bool {
 		return res[i].Product < res[j].Product
 	})
+	for i := 0; i < len(res); i++ {
+		fmt.Printf("%d = %d * %d\n", res[i].Product, res[i].Prime1, res[i].Prime2)
+	}
 }
